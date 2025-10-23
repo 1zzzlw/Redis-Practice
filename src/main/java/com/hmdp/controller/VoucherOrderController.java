@@ -1,7 +1,8 @@
 package com.hmdp.controller;
 
-
 import com.hmdp.dto.Result;
+import com.hmdp.service.IVoucherOrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author 虎哥
@@ -19,8 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/voucher-order")
 public class VoucherOrderController {
 
+    @Autowired
+    IVoucherOrderService iVoucherOrderService;
+
     @PostMapping("seckill/{id}")
     public Result seckillVoucher(@PathVariable("id") Long voucherId) {
-        return Result.fail("功能未完成");
+        return iVoucherOrderService.seckillVoucher(voucherId);
     }
+
 }
