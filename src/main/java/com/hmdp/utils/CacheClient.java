@@ -123,7 +123,7 @@ public class CacheClient {
 
     // 获取锁
     private boolean tryLock(String key) {
-        Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key, "1", 10, TimeUnit.SECONDS);
+        Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key, "1", 20, TimeUnit.SECONDS);
         return BooleanUtil.isTrue(flag);
     }
 
